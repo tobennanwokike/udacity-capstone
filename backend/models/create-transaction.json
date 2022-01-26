@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "transactions",
+    "type": "object",
+    "properties": {
+      "amount": {
+        "type": "number",
+        "minimum": 50
+      },
+      "network": {
+        "type": "string",
+        "enum": ["mtn", "glo", "airtel", "9mobile"]
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "minLength": 11
+      }
+    },
+    "required": ["amount", "network", "phone"],
+    "additionalProperties": false
+}

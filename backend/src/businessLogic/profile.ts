@@ -60,7 +60,7 @@ export async function updateProfile(userId: string, profileId: string, updatePro
     throw new Error('User is not authorized to update item')  // FIXME: 403?
   }
 
-  profileAccess.updateProfileItem(profileId, updateProfileRequest as ProfileUpdate)
+  await profileAccess.updateProfileItem(profileId, updateProfileRequest as ProfileUpdate)
 }
 
 export async function deleteProfile(userId: string, profileId: string) {
@@ -76,7 +76,7 @@ export async function deleteProfile(userId: string, profileId: string) {
     throw new Error('User is not authorized to delete item')  // FIXME: 403?
   }
 
-  profileAccess.deleteProfileItem(profileId)
+  await profileAccess.deleteProfileItem(profileId)
 }
 
 export async function updateAttachmentUrl(userId: string, profileId: string, attachmentId: string) {

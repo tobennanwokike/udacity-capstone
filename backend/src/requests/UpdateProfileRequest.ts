@@ -3,5 +3,4 @@
  */
  export interface UpdateProfileRequest {
     walletBalance: number
-    modifiedAt: string
   }

@@ -40,7 +40,7 @@ export class ProfileAccess {
 
     const item = result.Items[0]
 
-    logger.info(`Found ${item.length} profile for user ${userId} in ${this.profileTable}`)
+    logger.info(`Found profile for user ${userId} in ${this.profileTable}`)
 
     return item as ProfileItem
   }
@@ -54,6 +54,8 @@ export class ProfileAccess {
         profileId
       }
     }).promise()
+
+    logger.info(`Done Getting profile ${profileId} from ${this.profileTable}`)
 
     const item = result.Item
 
@@ -78,15 +80,14 @@ export class ProfileAccess {
       Key: {
         profileId
       },
-      UpdateExpression: 'set #walletBalance = :walletBalance, modifiedAt = :modifiedAt',
-      ExpressionAttributeNames: {
-        "#walletBalance": "walletBalance"
-      },
+      UpdateExpression: 'set walletBalance = :walletBalance, modifiedAt = :modifiedAt',
       ExpressionAttributeValues: {
         ":walletBalance": profileUpdate.walletBalance,
-        ":modifiedAt": profileUpdate.modifiedAt
+        ":modifiedAt": new Date().toISOString()
       }
     }).promise()   
+
+    logger.info(`Completed Updating profile item ${profileId} in ${this.profileTable}`)
   }
 
   async deleteProfileItem(profileId: string) {

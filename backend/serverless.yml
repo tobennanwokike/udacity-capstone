@@ -17,7 +17,7 @@ provider:
   region: ${opt:region, 'us-east-1'}
 
   environment:
-    PROFILE_TABLE: Profile-tobenna-${self:provider.stage}
+    PROFILE_TABLE: Profiles-tobenna-${self:provider.stage}
     PROFILE_BY_USER_INDEX: ProfileByUserIndex
     TRANSACTIONS_TABLE: Transactions-tobenna-${self:provider.stage}
     TRANSACTIONS_BY_PROFILE_INDEX: TransactionsByProfileIndex
@@ -290,6 +290,15 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TRANSACTIONS_TABLE}
       - Effect: Allow
         Action:
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.PROFILE_TABLE}/index/${self:provider.environment.PROFILE_BY_USER_INDEX}
+      - Effect: Allow
+        Action:
+          - dynamodb:UpdateItem
+          - dynamodb:GetItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.PROFILE_TABLE}
+      - Effect: Allow
+        Action:
           - xray:GetSamplingRules
           - xray:GetSamplingTargets
           - xray:GetSamplingStatisticSummaries
@@ -303,34 +312,6 @@ functions:
         Resource:
           - "*"
 
-  DeleteTransaction:
-    handler: src/lambda/http/deleteTransaction.handler
-    events:
-      - http:
-          method: delete
-          path: transactions/{transactionId}
-          cors: true
-          auth: Auth
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-          - dynamodb:DeleteItem
-          - dynamodb:GetItem
-        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TRANSACTIONS_TABLE}
-      - Effect: Allow
-        Action:
-          - xray:GetSamplingRules
-          - xray:GetSamplingTargets
-          - xray:GetSamplingStatisticSummaries
-          - xray:BatchGetTraces
-          - xray:GetServiceGraph
-          - xray:GetTraceGraph
-          - xray:GetTraceSummaries
-          - xray:GetGroups
-          - xray:GetGroup
-          - xray:PutTraceSegments
-        Resource:
-          - "*"
 
 
 resources:
@@ -356,13 +337,11 @@ resources:
             AttributeType: S
           - AttributeName: userId
             AttributeType: S
-          - AttributeName: createdAt
-            AttributeType: S
         KeySchema:
           - AttributeName: profileId
             KeyType: HASH
-          - AttributeName: createdAt
-            KeyType: RANGE
+          # - AttributeName: createdAt
+          #   KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:provider.environment.PROFILE_TABLE}
         GlobalSecondaryIndexes:
@@ -370,35 +349,29 @@ resources:
             KeySchema:
               - AttributeName: userId
                 KeyType: HASH
-              - AttributeName: createdAt
-                KeyType: RANGE
+              # - AttributeName: createdAt
+              #   KeyType: RANGE
             Projection:
               ProjectionType: ALL
 
-      TransactionsTable:
+    TransactionsTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
           - AttributeName: transactionId
             AttributeType: S
-          - AttributeName: profileId
-            AttributeType: S
-          - AttributeName: createdAt
+          - AttributeName: userId
             AttributeType: S
         KeySchema:
           - AttributeName: transactionId
             KeyType: HASH
-          - AttributeName: createdAt
-            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:provider.environment.TRANSACTIONS_TABLE}
         GlobalSecondaryIndexes:
           - IndexName: ${self:provider.environment.TRANSACTIONS_BY_PROFILE_INDEX}
             KeySchema:
-              - AttributeName: profileId
+              - AttributeName: userId
                 KeyType: HASH
-              - AttributeName: createdAt
-                KeyType: RANGE
             Projection:
               ProjectionType: ALL
 

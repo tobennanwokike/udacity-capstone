@@ -1,12 +1,27 @@
-import React from 'react'
-import { Dimmer, Loader } from 'semantic-ui-react'
+import React, {useEffect} from 'react';
+import { withRouter } from './WithRouter';
+import auth0Client from '../auth/Auth'
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from "react-router-dom"
 
 function Callback() {
-  return (
-    <Dimmer active>
-      <Loader content="Loading" />
-    </Dimmer>
-  )
+    let navigate = useNavigate();
+    let location = useLocation();
+   
+
+    useEffect( () => {
+        (async () => {
+            if (/access_token|id_token|error/.test(location.hash)){
+                await auth0Client.handleAuthentication();
+                navigate('/profile');
+            }
+            
+        })();
+    },[])
+  
+    return (
+      <p>Loading profile...</p>
+    );
 }
 
-export default Callback
+export default withRouter(Callback);

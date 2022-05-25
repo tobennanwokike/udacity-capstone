@@ -1,5 +1,7 @@
+import { CreateWalletTransactionRequest } from './../requests/CreateWalletTransactionRequest';
 import { ProfileAccess } from './../dataLayer/ProfileAccess';
 import { ProfileUpdate } from './../models/ProfileUpdate';
+import { createWalletTransaction } from './walletTransactions';
 import 'source-map-support/register'
 
 import * as uuid from 'uuid'
@@ -56,18 +58,31 @@ export async function updateTransaction(userId: string, transactionId: string, u
     throw new Error('User is not authorized to update item')  // FIXME: 403?
   }
 
+  if (item.status !== "pending")
+    throw new Error('Transaction has already been processed')  // FIXME: 400?
+
   //check if the user has enough funds in their wallet
   const user = await profileAccess.getProfileByUser(userId)
   if (user.walletBalance < item.amount)
     throw new Error('Insufficient balance to complete transaction')  // FIXME: 400?
 
-  //debit the user's wallet and save it into the wallet transactions table
+  //debit the user's wallet balance
   const walletBalance = user.walletBalance - item.amount
   const updateProfile : ProfileUpdate = {
     walletBalance
   }
   await profileAccess.updateProfileItem(user.profileId, updateProfile)
 
+  //save the transaction into the wallet transactions table
+  const createWalletTransactionRequest :CreateWalletTransactionRequest = {
+    amount: item.amount,
+    walletBalance,
+    category: 'debit',
+    details: 'Payment for Airtime',
+    transactionId: item.transactionId
+  }
+  await createWalletTransaction(userId, createWalletTransactionRequest)
 
-  await transactionsAccess.updateTransactionItem(transactionId, updateTransactionRequest as TransactionUpdate)
+
+  await transactionsAccess.updateTransactionItem(transactionId, updateTransactionRequest as TransactionUpdate, "Transaction was successful", "successful")
 }

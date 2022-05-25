@@ -1,111 +1,31 @@
-import React, { Component } from 'react'
-import { Link, Route, Router, Switch } from 'react-router-dom'
-import { Grid, Menu, Segment } from 'semantic-ui-react'
-
-import Auth from './auth/Auth'
-import { EditTodo } from './components/EditTodo'
-import { LogIn } from './components/LogIn'
-import { NotFound } from './components/NotFound'
-import { Todos } from './components/Todos'
-
-export interface AppProps {}
-
-export interface AppProps {
-  auth: Auth
-  history: any
+import React from 'react';
+import Home from './pages/Home/Home';
+import Profile from './pages/profile/Profile';
+import Transactions from './pages/transactions/Transactions';
+import './App.css'
+import Header from './components/Header';
+import { BrowserRouter,Routes,Route} from "react-router-dom";
+import auth0Client from './auth/Auth';
+import { useLocation } from "react-router-dom"
+import Callback from './components/Callback';
+import { HotToaster } from './utils/Toaster';
+import WalletTransactions from './pages/walletTransaction/WalletTransaction';
+function App() {
+  return (
+    <div >
+        <BrowserRouter>
+           <Header />
+            <HotToaster />
+             <Routes>
+                  <Route path="/" element={<Home />} /> 
+                  <Route path="profile" element={<Profile />} />
+                  <Route path="transactions" element={<Transactions />} />
+                  <Route path="wallet" element={<WalletTransactions />} />
+                  <Route path="callback" element={<Callback />} />
+            </Routes>
+        </BrowserRouter>
+    </div>
+  );
 }
 
-export interface AppState {}
-
-export default class App extends Component<AppProps, AppState> {
-  constructor(props: AppProps) {
-    super(props)
-
-    this.handleLogin = this.handleLogin.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
-  }
-
-  handleLogin() {
-    this.props.auth.login()
-  }
-
-  handleLogout() {
-    this.props.auth.logout()
-  }
-
-  render() {
-    return (
-      <div>
-        <Segment style={{ padding: '8em 0em' }} vertical>
-          <Grid container stackable verticalAlign="middle">
-            <Grid.Row>
-              <Grid.Column width={16}>
-                <Router history={this.props.history}>
-                  {this.generateMenu()}
-
-                  {this.generateCurrentPage()}
-                </Router>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Segment>
-      </div>
-    )
-  }
-
-  generateMenu() {
-    return (
-      <Menu>
-        <Menu.Item name="home">
-          <Link to="/">Home</Link>
-        </Menu.Item>
-
-        <Menu.Menu position="right">{this.logInLogOutButton()}</Menu.Menu>
-      </Menu>
-    )
-  }
-
-  logInLogOutButton() {
-    if (this.props.auth.isAuthenticated()) {
-      return (
-        <Menu.Item name="logout" onClick={this.handleLogout}>
-          Log Out
-        </Menu.Item>
-      )
-    } else {
-      return (
-        <Menu.Item name="login" onClick={this.handleLogin}>
-          Log In
-        </Menu.Item>
-      )
-    }
-  }
-
-  generateCurrentPage() {
-    if (!this.props.auth.isAuthenticated()) {
-      return <LogIn auth={this.props.auth} />
-    }
-
-    return (
-      <Switch>
-        <Route
-          path="/"
-          exact
-          render={props => {
-            return <Todos {...props} auth={this.props.auth} />
-          }}
-        />
-
-        <Route
-          path="/todos/:todoId/edit"
-          exact
-          render={props => {
-            return <EditTodo {...props} auth={this.props.auth} />
-          }}
-        />
-
-        <Route component={NotFound} />
-      </Switch>
-    )
-  }
-}
+export default App;

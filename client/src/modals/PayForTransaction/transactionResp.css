@@ -1,0 +1,49 @@
+.btn-wrapper {
+    text-align: center !important;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-wrapper button {
+    width: 100% !important;
+    padding: 10px;
+  } 
+
+  .form-field {
+    background: #eff0f7;
+    border: 2px solid #a0a3bd;
+    border-radius: 6px;
+    padding: 0 0 0 24px;
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+    margin-bottom: 24px;
+  }
+  .form-field input {
+    height: 100%;
+    flex-grow: 100;
+    /* border-radius: 6px; */
+    padding-left: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+ 
+  .pay_button {
+    display: inline-block;
+    margin-top: 1rem;
+    background: linear-gradient(174.69deg, #1CB4AE 2.96%, #2C58CB 105.09%);
+    color: #fff;
+    font-family: "Roboto",sans-serif;
+    width: 134px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,.5);
+    line-height: 28px;
+    border-radius: 3px;
+    outline: none!important;
+    margin-right: 10px;
+    box-shadow: none!important;
+    text-align: center;
+    cursor: pointer;
+    transition: all 300ms linear 0s;
+  }

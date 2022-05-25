@@ -1,0 +1,9 @@
+.loader {
+    flex: 1;
+    background-color: #ffffff;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+   
+    justify-content:center;
+}

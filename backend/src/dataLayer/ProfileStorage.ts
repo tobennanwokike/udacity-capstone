@@ -3,6 +3,10 @@ import 'source-map-support/register'
 import * as AWS from 'aws-sdk'
 import * as AWSXRay from 'aws-xray-sdk'
 
+import { createLogger } from '../utils/logger'
+
+const logger = createLogger('profileStorage')
+
 const XAWS = AWSXRay.captureAWS(AWS)
 
 export class ProfileStorage {
@@ -19,10 +23,11 @@ export class ProfileStorage {
   }
 
   async getUploadUrl(attachmentId: string): Promise<string> {
+    logger.info(`${this.bucketName} has ${this.urlExpiration} seconds`)
     const uploadUrl = this.s3.getSignedUrl('putObject', {
       Bucket: this.bucketName,
       Key: attachmentId,
-      Expires: this.urlExpiration
+      Expires: parseInt(this.urlExpiration)
     })
     return uploadUrl
   }

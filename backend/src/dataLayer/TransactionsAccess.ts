@@ -69,9 +69,9 @@ export class TransactionsAccess {
     }).promise()
   }
 
-  async updateTransactionItem(transactionId: string, transactionUpdate: TransactionUpdate) {
+  async updateTransactionItem(transactionId: string, transactionUpdate: TransactionUpdate, remarks: string, status: string) {
     logger.info(`Updating transaction item ${transactionId} in ${this.transactionsTable}`)
-    const transactionStatus = "successful"
+   
 
     await this.docClient.update({
       TableName: this.transactionsTable,
@@ -84,8 +84,8 @@ export class TransactionsAccess {
       },
       ExpressionAttributeValues: {
         ":paymentReference": transactionUpdate.paymentReference,
-        ":remarks": transactionUpdate.remarks,
-        ":status": transactionStatus,
+        ":remarks": remarks,
+        ":status": status,
         ":modifiedAt": new Date().toISOString()
       }
     }).promise()   

@@ -1,0 +1,150 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(70, 58, 204, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    z-index: 1111;
+  }
+  .modal {
+    width: 92%;
+    max-width: max-content;
+    position: relative;
+  }
+  .modalBody {
+    height: 100%;
+    width: fit-content;
+    max-width: max-content;
+    padding: clamp(2rem, 10%, 60px);
+    border-radius: 6px !important;
+    background-color: #fff !important;
+  }
+  .modalBody > div,
+  .modalBody > section {
+    padding: clamp(2rem, 10%, 60px);
+    border-radius: 6px !important;
+    background-color: #fff !important;
+  }
+  .modal h3 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .modalHeader {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+  }
+  .modalHeader button {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .modalHeader button:hover {
+    color: red;
+    -o-transition: unset;
+    -moz-transition: unset;
+    -webkit-transition: unset;
+    transition: color 0s;
+  }
+  .change_password {
+    max-width: 530px;
+  }
+  
+  .change_password > div:last-of-type {
+    margin-top: 30px;
+  }
+  .cancel_confirmation {
+    text-align: center;
+  }
+  .cancel_confirmation p {
+    margin-bottom: 30px;
+  }
+  .cancel_confirmation > div {
+    padding: 20px 0 0;
+    border-top: 1px solid #e2e2e2;
+    text-align: right;
+  }
+  .cancel_confirmation > div button {
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+  .cancel_confirmation > div button:first-of-type {
+    margin-right: 20px;
+  }
+  .sign_up_btn {
+    background: #ffffff;
+    border: 1px solid #231f20;
+    color: #231f20;
+    margin-top: 20px;
+  }
+  
+  .payment_summary,
+  .cancel_confirmation {
+    width: 88vw;
+  }
+  
+  .payment_summary h3 {
+    padding-bottom: 10px;
+    font-size: 26px;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid #eff0f6;
+  }
+  
+  .payment_summary ul {
+    margin-bottom: 30px;
+  }
+  
+  .payment_summary ul li {
+    padding: 15px 0 10px;
+    border-bottom: 1px solid #eff0f6;
+    display: flex;
+    justify-content: space-between;
+  }
+  .payment_summary ul li span:first-of-type {
+    font-weight: 500;
+  }
+  .payment_summary > div {
+    text-align: right;
+  }
+  
+  .referals_details > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eff0f6;
+  }
+  .referals_details > div > span:last-of-type {
+    font-weight: 600;
+  }
+  .referals_details p {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 800px) {
+      .payment_summary,
+      .cancel_confirmation {
+        width: 30vw;
+      }
+  
+    .payment_summary > h3 {
+      font-size: 28px;
+    }
+  
+    .payment_summary>div button {
+      max-width: 152px;
+    }
+  
+    .modalOverlay {
+      align-items: center;
+      padding-top: 0;
+    }
+    .modal .modalHeader > button {
+      display: flex;
+    }
+  }
+  

@@ -1,0 +1,114 @@
+.form-field {
+    background: #eff0f7;
+    border: 2px solid #a0a3bd;
+    border-radius: 6px;
+    padding: 0 0 0 24px;
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+    margin-bottom: 24px;
+  }
+  .form-field input {
+    height: 100%;
+    flex-grow: 100;
+    /* border-radius: 6px; */
+    padding-left: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+ 
+    .btn-wrapper {
+    text-align: center !important;
+  }
+  .btn-wrapper button {
+    width: 100% !important;
+    padding: 10px;
+  } 
+
+.modal h2 {
+    margin-bottom: 64px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 122.5%;
+  }
+  /* .modal p {
+    text-align: center;
+  } */
+  .card_details_form {
+    margin-top: 0;
+    padding: 60px 40px;
+    max-width: 600px;
+  }
+  .card_details_form h2 {
+    margin-bottom: 24px;
+  }
+  .card_details_form p.note {
+    margin-bottom: 64px;
+  }
+  .card_details_form .card_wrapper input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .card_details_form .card_wrapper > div {
+    background: #eff0f7;
+    border: 2px solid #a0a3bd;
+    border-radius: 6px;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+    margin-bottom: 24px;
+  }
+  .card_details_form .card_wrapper > div:first-of-type {
+    display: grid;
+    grid-template-columns: 32px auto;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+  .card_number {
+    display: grid;
+  }
+  .card_details_form .card_wrapper > div:last-of-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 5px;
+    grid-gap: 12px;
+  }
+  
+  .card_details_form .card_wrapper img {
+    width: 32px;
+    display: inline;
+    vertical-align: middle;
+  }
+  
+  @media screen and (min-width: 800px) {
+    .card_details_form .card_wrapper {
+      display: flex;
+      grid-template-columns: auto 0px !important;
+      align-items: center;
+      background: #eff0f7;
+      border: 2px solid #a0a3bd;
+      border-radius: 6px;
+      /* padding: 0 0 0 24px; */
+      width: 100%;
+      height: 50px;
+      /* display: inline-flex; */
+      margin-bottom: 24px;
+    }
+    .card_details_form .card_wrapper > div:first-of-type {
+      flex-basis: 60%;
+    }
+    .card_details_form .card_wrapper > div {
+      margin-bottom: 0 !important;
+      border: none;
+      border-radius: unset;
+      background: none;
+    }
+  }
+  

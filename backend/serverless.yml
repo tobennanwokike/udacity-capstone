@@ -21,6 +21,8 @@ provider:
     PROFILE_BY_USER_INDEX: ProfileByUserIndex
     TRANSACTIONS_TABLE: Transactions-tobenna-${self:provider.stage}
     TRANSACTIONS_BY_PROFILE_INDEX: TransactionsByProfileIndex
+    WALLET_TRANSACTIONS_TABLE: Wallet-Transactions-tobenna-${self:provider.stage}
+    WALLET_TRANSACTIONS_BY_USER_INDEX: WalletTransactionsByUserIndex
     ATTACHMENTS_S3_BUCKET: profile-attachments-tobenna-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
     AUTH_0_JWKS_URL: https://dev-3-u2lb-1.us.auth0.com/.well-known/jwks.json
@@ -299,6 +301,38 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.PROFILE_TABLE}
       - Effect: Allow
         Action:
+          - dynamodb:PutItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.WALLET_TRANSACTIONS_TABLE}
+      - Effect: Allow
+        Action:
+          - xray:GetSamplingRules
+          - xray:GetSamplingTargets
+          - xray:GetSamplingStatisticSummaries
+          - xray:BatchGetTraces
+          - xray:GetServiceGraph
+          - xray:GetTraceGraph
+          - xray:GetTraceSummaries
+          - xray:GetGroups
+          - xray:GetGroup
+          - xray:PutTraceSegments
+        Resource:
+          - "*"
+  
+  GetWalletTransactions:
+    handler: src/lambda/http/getWalletTransactions.handler
+    events:
+      - http:
+          method: get
+          path: wallet/transactions
+          cors: true
+          auth: Auth
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.WALLET_TRANSACTIONS_TABLE}/index/${self:provider.environment.WALLET_TRANSACTIONS_BY_USER_INDEX}
+      - Effect: Allow
+        Action:
           - xray:GetSamplingRules
           - xray:GetSamplingTargets
           - xray:GetSamplingStatisticSummaries
@@ -369,6 +403,27 @@ resources:
         TableName: ${self:provider.environment.TRANSACTIONS_TABLE}
         GlobalSecondaryIndexes:
           - IndexName: ${self:provider.environment.TRANSACTIONS_BY_PROFILE_INDEX}
+            KeySchema:
+              - AttributeName: userId
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+
+    WalletTransactionsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: walletTransactionId
+            AttributeType: S
+          - AttributeName: userId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: walletTransactionId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.WALLET_TRANSACTIONS_TABLE}
+        GlobalSecondaryIndexes:
+          - IndexName: ${self:provider.environment.WALLET_TRANSACTIONS_BY_USER_INDEX}
             KeySchema:
               - AttributeName: userId
                 KeyType: HASH

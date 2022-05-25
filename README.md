@@ -1,10 +1,10 @@
-# Serverless TODO
+# BillPay
 
-A simple TODO application using AWS Lambda and Serverless framework, for the final project of the Udacity Cloud Developer Nanodegree.
+A bill payment application which leverages AWS Lambda and Serverless framework to enable customers purchase airtime on Nigerian mobile networks. This was built to fulfill the requirements for the Capstone project of the Udacity Cloud Developer Nanodegree programme.
 
 ## Functionality of the application
 
-This application will allow creating/removing/updating/fetching TODO items. Each TODO item can optionally have an attachment image. Each user only has access to TODO items that he/she has created.
+The application allows users to create a profile, update their wallets, make payments from their wallets and view their transactions. Each user only has access to the transactions which have been carried out on their profile.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ To run the client application, first edit the `client/src/config.ts` file to set
 2. Install dependencies: `npm install`
 3. Run the client application: `npm run start`
 
-This should start a development server with the React application that will interact with the serverless TODO application.
+This should start a development server with the React application that will interact with the serverless BillPay application.
 
 ### Postman collection
 

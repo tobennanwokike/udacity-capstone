@@ -7,7 +7,7 @@ import Modal from '../../modals/Modal'
 import UpdateProfileModal from '../../modals/updateProfile/UpdateProfile'
 
 
-const logo =  require("../../assets/images/wallet.jpg")
+const logo =  require("../../assets/images/mnos.png")
 
 
 const Profile = () => {

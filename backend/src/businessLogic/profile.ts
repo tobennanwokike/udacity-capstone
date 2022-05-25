@@ -36,7 +36,7 @@ export async function createProfile(userId: string, createProfileRequest: Create
     createdAt: new Date().toISOString(),
     modifiedAt: new Date().toISOString(),
     walletBalance: 100000,
-    imageUrl: null,
+    imageUrl: "https://eu.ui-avatars.com/api/?name=Bill+Pay&size=250",
     ...createProfileRequest
   }
 

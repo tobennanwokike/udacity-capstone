@@ -1,0 +1,838 @@
+{
+	"info": {
+		"_postman_id": "ae611fb6-9935-4073-9862-ff99e9baff70",
+		"name": "BillPay (Udacity)",
+		"description": "A simple API to pay airtime bills",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/profile",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Mar 2022 19:27:20 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "f7e4ba8f-eb35-47bc-80bd-c081de0cd32f"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "PClHgFSHIAMFjtw="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6230e896-24737681087fad7c52cb970a"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 98080dcdb79f5d17a442cf184e6c523c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR61-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "TxCE2Vfc67Se7bUuElUQWgvcCCop7k4nFNFdmrW3MP8CFwA3iqgl1w=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"item\": {\n        \"modifiedAt\": \"2022-01-26T09:10:53.126Z\",\n        \"imageUrl\": null,\n        \"userId\": \"google-oauth2|111491652319839914435\",\n        \"walletBalance\": 143000,\n        \"createdAt\": \"2022-01-16T21:22:28.127Z\",\n        \"profileId\": \"7d6baa49-45a1-45d6-80cc-76ec2edff505\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Profile",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/profile",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"profile"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Mar 2022 19:27:55 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "d9457a7a-925f-4112-b40f-394e61e92f85"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "PClNDHOHIAMF3kQ="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6230e8b9-2ea3d3ac36e210bc4d8273e0"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 98080dcdb79f5d17a442cf184e6c523c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR61-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Z2C3mBAX4sl9kwVH1i1G2aMh4F1rzLXty1qzTT1LwL36yUP7hvaMtQ=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"item\": {\n        \"modifiedAt\": \"2022-01-26T09:10:53.126Z\",\n        \"imageUrl\": null,\n        \"userId\": \"google-oauth2|111491652319839914435\",\n        \"walletBalance\": 143000,\n        \"createdAt\": \"2022-01-16T21:22:28.127Z\",\n        \"profileId\": \"7d6baa49-45a1-45d6-80cc-76ec2edff505\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"walletBalance\": 150000\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/profile/59128120-4015-40bc-bf71-eb5e8b2eaa2c",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile",
+								"59128120-4015-40bc-bf71-eb5e8b2eaa2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attachment URL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/todos/3836b777-9bc4-4429-9b79-ba4e4f5f91c0/attachment",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"todos",
+								"3836b777-9bc4-4429-9b79-ba4e4f5f91c0",
+								"attachment"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Transactions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/transactions",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2230"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Mar 2022 19:29:59 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "d6a943cc-c9f9-400f-b7a2-22dc59e903b2"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "PClgUEqkoAMFrbQ="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6230e935-4124e5ca69852b55283b2ab6"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 98080dcdb79f5d17a442cf184e6c523c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR61-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "pVpirD5ZktlexaPJoNWavr3efmEeIq-3shWZK3LYTTseQXYzQ2harw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"items\": [\n        {\n            \"modifiedAt\": \"2022-01-26T09:10:53.173Z\",\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"successful\",\n            \"createdAt\": \"2022-01-26T09:10:22.890Z\",\n            \"amount\": 2000,\n            \"remarks\": \"Transaction was successful\",\n            \"phone\": \"08166127025\",\n            \"transactionId\": \"a0569f2e-e37b-4f31-9f93-9af8b1c9d04a\",\n            \"paymentReference\": \"gtafadREHJAYDS712344\",\n            \"accessToken\": 1643188222890,\n            \"network\": \"mtn\"\n        },\n        {\n            \"modifiedAt\": \"2022-01-25T07:04:55.873Z\",\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"successful\",\n            \"createdAt\": \"2022-01-25T07:03:53.765Z\",\n            \"amount\": 2000,\n            \"remarks\": \"Transaction is successful\",\n            \"phone\": \"08166127025\",\n            \"transactionId\": \"5043a9c4-4a9f-4a6d-863d-350f812db030\",\n            \"paymentReference\": \"gtafadREHJAYDS7123\",\n            \"accessToken\": 1643094233765,\n            \"network\": \"mtn\"\n        },\n        {\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"pending\",\n            \"createdAt\": \"2022-01-22T16:47:18.314Z\",\n            \"amount\": 1000,\n            \"remarks\": \"\",\n            \"phone\": \"0816612702\",\n            \"transactionId\": \"79114e59-1350-459b-b881-31ab767d3b53\",\n            \"accessToken\": 1642870038314,\n            \"network\": \"mtn\"\n        },\n        {\n            \"modifiedAt\": \"2022-01-22T20:31:53.928Z\",\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"successful\",\n            \"createdAt\": \"2022-01-22T19:49:53.869Z\",\n            \"amount\": 1000,\n            \"remarks\": \"Transaction is successful\",\n            \"phone\": \"08166127025\",\n            \"transactionId\": \"ecee5136-36ae-42fa-9783-af3c5c5148fd\",\n            \"paymentReference\": \"gtafadREHJAYDS71\",\n            \"accessToken\": 1642880993869,\n            \"network\": \"mtn\"\n        },\n        {\n            \"modifiedAt\": \"2022-01-25T07:08:43.027Z\",\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"successful\",\n            \"createdAt\": \"2022-01-25T07:08:19.285Z\",\n            \"amount\": 1000,\n            \"remarks\": \"Transaction is successful\",\n            \"phone\": \"08166127025\",\n            \"transactionId\": \"b5aa8df7-dea7-4b11-ab95-115df0318460\",\n            \"paymentReference\": \"gtafadREHJAYDS71234\",\n            \"accessToken\": 1643094499285,\n            \"network\": \"mtn\"\n        },\n        {\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"pending\",\n            \"createdAt\": \"2022-01-22T20:35:04.548Z\",\n            \"amount\": 300000,\n            \"remarks\": \"\",\n            \"phone\": \"08166127025\",\n            \"transactionId\": \"70226e31-89fd-4e38-b25e-7704991a871b\",\n            \"accessToken\": 1642883704548,\n            \"network\": \"mtn\"\n        },\n        {\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"status\": \"pending\",\n            \"createdAt\": \"2022-01-22T16:56:01.592Z\",\n            \"amount\": 1000,\n            \"remarks\": \"\",\n            \"phone\": \"0816612702\",\n            \"transactionId\": \"98d79977-8e66-441f-808b-5747a63d90e4\",\n            \"accessToken\": 1642870561592,\n            \"network\": \"mtn\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 2000,\n\t\"network\": \"mtn\",\n    \"phone\": \"08166127025\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"transactions"
+							]
+						},
+						"description": "All fields are mandatory\n\nPhone number must be numeric and must also be 11 digits\n\nAccepted values for network are mtn, glo, airtel, 9mobile"
+					},
+					"response": [
+						{
+							"name": "Create Transactions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"amount\": 2000,\n\t\"network\": \"mtn\",\n    \"phone\": \"08166127025\"\n}"
+								},
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/transactions",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"transactions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Mar 2022 19:30:25 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "65815f32-d0c3-478e-969f-c8af047887df"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "PClkXGpWIAMF4tA="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6230e94e-3f7da37719653bf41af977ac"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 98080dcdb79f5d17a442cf184e6c523c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR61-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "5e0qZO9OyghHoAunotUztJf0IjMyAaaEF3yqJ3oa9xcPBKoGFQKsIg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"item\": {\n        \"userId\": \"google-oauth2|111491652319839914435\",\n        \"transactionId\": \"84f9ff6d-0bf9-4648-bf38-3445a64838d3\",\n        \"createdAt\": \"2022-03-15T19:30:24.486Z\",\n        \"status\": \"pending\",\n        \"accessToken\": 1647372624486,\n        \"remarks\": \"\",\n        \"amount\": 2000,\n        \"network\": \"mtn\",\n        \"phone\": \"08166127025\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Transaction",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"paymentReference\": \"gtafadREHJAYDS7123445\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/transactions/84f9ff6d-0bf9-4648-bf38-3445a64838d3",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"transactions",
+								"84f9ff6d-0bf9-4648-bf38-3445a64838d3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Wallet Transactions",
+			"item": [
+				{
+					"name": "Get Wallet Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/wallet/transactions",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"wallet",
+								"transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Wallet Transactions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{authToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/wallet/transactions",
+									"protocol": "https",
+									"host": [
+										"{{apiId}}",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"wallet",
+										"transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "595"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 Mar 2022 19:31:48 GMT"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "96837bca-d749-4757-8926-6ac309364821"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "PClxcHiZIAMFiog="
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-6230e9a2-73ab6bc410c2193c0d010f32"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 98080dcdb79f5d17a442cf184e6c523c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR61-P3"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "sZwaUAlyzeIp5V5dl5HKpsPHIahvGO8V3TsC5udmZ0oIwwrpXn_PrA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"items\": [\n        {\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"walletBalance\": 148000,\n            \"category\": \"debit\",\n            \"createdAt\": \"2022-03-15T19:31:22.709Z\",\n            \"amount\": 2000,\n            \"walletTransactionId\": \"f6495852-8325-4fbe-9b0d-da11d08ea404\",\n            \"details\": \"Payment for Airtime\",\n            \"transactionId\": \"84f9ff6d-0bf9-4648-bf38-3445a64838d3\"\n        },\n        {\n            \"userId\": \"google-oauth2|111491652319839914435\",\n            \"walletBalance\": 143000,\n            \"category\": \"debit\",\n            \"createdAt\": \"2022-01-26T09:10:53.151Z\",\n            \"amount\": 2000,\n            \"walletTransactionId\": \"8f083f31-d875-495f-9552-89b75ac6b599\",\n            \"details\": \"Payment for Airtime\",\n            \"transactionId\": \"a0569f2e-e37b-4f31-9f93-9af8b1c9d04a\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiId",
+			"value": "8f4bu0lmva"
+		},
+		{
+			"key": "authToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImhHRVBHWTdONkF1Yld1c3NWdnZIcyJ9.eyJpc3MiOiJodHRwczovL2Rldi0zLXUybGItMS51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDk4MzYzNDkwNzU4MDkzOTA4MzciLCJhdWQiOiJwZTlNd0JiMFVnUmVUM1M4Z25nZnVQWFB3ZG8zOHNGeiIsImlhdCI6MTY0ODA2OTU3MSwiZXhwIjoxNjQ4MTA1NTcxLCJhdF9oYXNoIjoiVkZvNjhpNWp6Q2FHQ1JEV3BySFprdyIsIm5vbmNlIjoibWNpM2hkM3J4TnhhODZQRzRiVEk4Sk9kUE5rS3BZUFIifQ.XWJd41t-nV6Wb4wbJZ6PqAjIzZY2arGeT-ycLVMNL3trsUiW77leDanWYvTIyJYhOyJUMStc7TwDZzHKGY4X4hpIiMfQ6D13PMN_"
+		}
+	]
+}

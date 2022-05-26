@@ -48,6 +48,15 @@ This should start a development server with the React application that will inte
 
 A Postman collection is available in the root folder of the project, as an alternative way to test the API.
 
+### Test Data
+
+In order to carry out a successful transaction, any 11 digit number can be used when prompted to enter the phone number. An example could be 08166127025
+
+### Considerations
+
+Although the delete profile endpoint has been created in the source code to demonstrate the ability to delete records from the DB, it is not consumed on the frontend as it is not required based on the use case.
+
+
 ## Acknowledgements
 
 This project was bootstrapped with [https://github.com/udacity/cloud-developer/tree/master/course-04/project/c4-final-project-starter-code](https://github.com/udacity/cloud-developer/tree/master/course-04/project/c4-final-project-starter-code).
